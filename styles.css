@@ -34,7 +34,7 @@
       border: none;
       outline: none;
       color: #fff;
-      background-image: linear-gradient(to right, #7C3AED, #6D28D9) !;
+      background-image: linear-gradient(to right, #7C3AED, #6D28D9);
       cursor: pointer;
       position: relative;
       z-index: 0;
