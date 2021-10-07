@@ -6,79 +6,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
+  <link rel="icon" href="bei-logo.png" sizes="any" type="image/png">
+  <meta property="og:image" content="images/hidden.jpg" />
+  <title>BEI - Business Education Initiative</title>
+  <meta name="description" content="The Business Education Initiative (BEI) is a 501(c)(3) nonprofit offering free business and finance competitions as well as Business CTSO Competitive Event Preparation.">
+
+  <style>
+  .bg-white {
+    background-color: #f6f5ff
+  }
+  .bg-purple {
+    background-color: #7C3AED
+  }
+  .text-purple {
+    color: #7C3AED
+  }
+  .sign-up-form {
+    margin-top: -60px
+  }
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+  </style>
 </head>
-<body class="bg-gradient-to-r from-purple-50 to-gray-50">   
-  <nav class="px-3 container bg-opacity-0 mx-auto flex flex-col md:flex-row items-center justify-between py-4 sm:px-0" aria-label="Global">
-    <div class="bg-opacity-0 w-full flex items-center">
-      <div class="flex items-center w-full md:w-auto">
-        <a href="#">
-          <span class="sr-only">Workflow</span>
-          <img class="h-10 w-auto sm:h-10" src="logo-transparent.png" alt="BEI Logo, a bar graph trending upwards into a book, as learning generates progression">
-        </a>
-        <div class="ml-auto -mr-2 flex items-center md:hidden">
-          <button type="button" class="mobile-menu-button rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-purple-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!-- Heroicon name: outline/menu -->
-            <svg class="h-9 w-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="ml-auto hidden space-x-8 md:flex md:ml-10">
-        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-700 duration-200">CTSO Prep</a>
+<div id="myModal" class="modal">
 
-        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-700 duration-200">Contact</a>
-      </div>
-    </div>
-    <div class="hidden sticky top-0 md:flex md:items-center md:space-x-6">
-      <div class="pulse-wrap mx-auto w-100"> 
-        <button type="button" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-32 md:ml-3 md:mt-0">Signup</button>
-      </div>
-    </div>
-    <div class=" mobile-menu hidden w-full flex flex-col">
-      <a href="#" class="divide-y divide-purple-500 pb-2 text-base font-medium text-gray-500 hover:text-gray-700 duration-200">CTSO Prep</a>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
 
-      <a href="#" class="pt-2 text-base font-medium text-gray-500 hover:text-gray-700 duration-200">Contact</a>
+    <iframe width="100%" height="300px" src="https://cdn.forms-content.sg-form.com/22b58870-2651-11ec-ba3a-aef2efb85ed7"></iframe>
 
-    </div>
-    <script>
-      const btn = document.querySelector(".mobile-menu-button");
-      const menu = document.querySelector(".mobile-menu");
+  </div>
 
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-    </script>
-  </nav>
-    
-  <div class="bg-cover bg-center h-screen">
-    <div class="container mx-auto">
-      <div class="flex flex-col sm:flex-row">
-        <div class="flex flex-col">
-          <div id="signup" class="px-3 pt-20 text-center sm:max-w-xl sm:px-0 sm:text-left lg:max-w-2xl">
-            <h1 class="font-bold text-4xl sm:text-5xl lg:text-7xl"><span class="text-purple-700">Free</span> Business <span class="text-purple-700">Competitions</span> With Big <span class="text-purple-700">Cash Prizes</span></h1>
-            <h4 class="font-bold mt-3 text-lg md:text-xl lg:text-">+Business CTSO Competitive Event Preparation (FBLA & DECA)</h4>
-          </div>
-          <img src="landing-phone.png" class="mt-20 max-w-full mx-auto sm:hidden" alt="3 phones displaying our organization, one with our logo, another with our instagram page -- @bei-nonprofit, and another with a stock portfolio depicting our stock competitions">
-          <div class="mt-10 sm:mt-12">
-            <form action="#" id="" class="mx-3 sm:mx-0 md:max-w-xl">
-              <div class="sm:flex max-w-full">
-                <div class="min-w-0 flex-1 shadow-sm">
-                  <label for="email" class="sr-only">you@example.com</label>
-                  <input id="email" type="email" placeholder="you@example.com" class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700">
-                </div>
-                <div class="pulse-wrap mx-auto w-100">
-                    <button type="button" href="#signup" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-28 md:ml-3 md:mt-0">Signup</button>
+</div>
+<body class="bg-gradient-to-r from-purple-50 to-gray-50">
+  <div class="min-h-screen">
+    <div class="relative overflow-hidden">
+      <header class="relative">
+        <div class="bg-white pt-6">
+          <nav class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6" aria-label="Global">
+            <div class="flex items-center flex-1">
+              <div class="flex items-center justify-between w-full md:w-auto">
+                <a href="#">
+                  <span class="sr-only">Workflow</span>
+                  <img class="h-8 w-auto sm:h-10" src="logo-transparent.png" alt="">
+                </a>
+                <div class="-mr-2 flex items-center md:hidden">
+
                 </div>
               </div>
-              <p class="mt-2 text-sm text-gray-700 sm:mt-4">*Get notified when competitions start</p>
-            </form>
+
+            </div>
+            <div class="hidden md:flex md:items-center md:space-x-6">
+
+              <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-purple hover:bg-gray-700">
+                Donate
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <!--
+          Mobile menu, show/hide based on menu open state.
+
+          Entering: "duration-150 ease-out"
+            From: "opacity-0 scale-95"
+            To: "opacity-100 scale-100"
+          Leaving: "duration-100 ease-in"
+            From: "opacity-100 scale-100"
+            To: "opacity-0 scale-95"
+        -->
+        <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
+          <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+
           </div>
         </div>
-        <img src="landing-phone.png" class="hidden mt-20 max-w-xs ml-auto sm:block lg:float-right lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl" alt="3 phones displaying our organization, one with our logo, another with our instagram page -- @bei-nonprofit, and another with a stock portfolio depicting our stock competitions">
-      </div>
+      </header>
 
+      <main>
+        <div class="pt-10 bg-white sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
+          <div class="mx-auto max-w-7xl lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+              <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
+                <div class="lg:py-24">
+                  <a href="#" class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+                    <span class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-purple rounded-full">Donate</span>
+                    <span class="ml-4 text-sm">Help us reach every student!</span>
+                    <!-- Heroicon name: solid/chevron-right -->
+                    <svg class="ml-2 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                  <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-black sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                    <span class="block">Business prep,</span>
+                    <span class="block text-purple">for students.</span>
+                  </h1>
+                  <p class="mt-3 text-base text-gray-900 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                    The Business Education Initiative (BEI) is a 501(c)(3) nonprofit offering free business and finance competitions as well as Business CTSO Competitive Event Preparation.
+                  </p>
+                  <div class="mt-10">
+                    <a id="myBtn" href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-purple hover:bg-gray-700">
+                      Join BEI!
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
+                <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+                  <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
+                  <img class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="landing-phone.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- More main page content here... -->
+      </main>
+
+    </div>
+  </div>
       <!-- Feature section with screenshot -->
       <div class="relative pt-16 sm:pt-24 lg:pt-20">
         <div class="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
@@ -90,7 +172,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Testimonial/stats section -->
       <div class="relative mt-20">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
@@ -143,12 +225,12 @@
               </h2>
               <div class="mt-6 text-gray-500 space-y-6">
                 <p class="text-lg">
-                  BEI curates investing competitions with large prizes. Our partner, <a target="_blank" class="text-purple-500 hover:text-purple-700 duration-200"href="https://www.investorg.com/">Invest Org</a>, curates investing courses alongside these competitions which our members can use to learn as they compete.
+                  BEI curates investing competitions with large prizes. Our partner, <a target="_blank" class="text-purple-500 hover:text-purple-700 duration-200"href="https://www.investorg.org/">Invest Org</a>, curates investing courses alongside these competitions which our members can use to learn as they compete.
                 </p>
                 <p class="text-base leading-7">
-                  At BEI, we go beyond for our members by not only providing meaningful opportunities for our members but by partnering with other student-led organizations. Our partnership with Invest Org allows our members 
-                  to complete investing courses while participating in our investing competitions but also trade in 
-                  real-time on Invest Org’s proprietary trading platform. 
+                  At BEI, we go beyond for our members by not only providing meaningful opportunities for our members but by partnering with other student-led organizations. Our partnership with Invest Org allows our members
+                  to complete investing courses while participating in our investing competitions but also trade in
+                  real-time on Invest Org’s proprietary trading platform.
                 </p>
                 <p class="text-base leading-7">
                   At BEI our members curate content for FBLA and DECA competitive events; we also support member-led initiatives; by doing this we continue to expand our 75k+ student network.
@@ -165,7 +247,7 @@
                 </div>
               </dl>
               <div class="mt-10">
-                <a href="#signup" class="text-base font-medium text-rose-500">
+                <a href="#" id="myBtn" class="text-base font-medium text-rose-500">
                   Join Now&rarr;
                 </a>
               </div>
@@ -202,31 +284,26 @@
               </h3>
               <p class="mt-3 text-lg text-gray-500">
                 At BEI we aim to make learning fun and engaging. For this reason we curate business competitions with large cash prizes.
-                We also allocate funds for our members to work with us and create member-led events/competitions. 
+                We also allocate funds for our members to work with us and create member-led events/competitions.
               </p>
 
               <dl class="mt-10 space-y-10">
                 <div class="relative">
                   <dt>
-                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple text-white">
                       <!-- Heroicon name: outline/globe-alt -->
                       <img class="h-6 w-6" src="icons/dollar-symbol.png">
                     </div>
-                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">$5000 Prize Pool Trading Competition (3x)</p>
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Young Investors Challenge</p>
                   </dt>
                   <dd class="mt-2 ml-16 text-base text-gray-500">
-                    Compete in a trading competition using a proprietary platform we share with one of our partners.
-                    Sign up to compete, an email will be sent explaining the join process.
-                    Prizes are as follows:
-                    1st - $3000;
-                    2nd - $1500;
-                    3rd - $500
+                    Compete in an investment competition using a proprietary platform! With over $10,000 in prizes, the Challenge is the biggest investment competition for teens across the world.
                   </dd>
                 </div>
 
                 <div class="relative">
                   <dt>
-                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple text-white">
                       <!-- Heroicon name: outline/scale -->
                       <img class="h-6 w-6" src="icons/customer.png">
                     </div>
@@ -240,7 +317,7 @@
 
                 <div class="relative">
                   <dt>
-                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple text-white">
                       <!-- Heroicon name: outline/lightning-bolt -->
                       <img class="h-6 w-6" src="icons/startup.png">
                     </div>
@@ -252,7 +329,7 @@
                 </div>
               </dl>
               <div class="mt-10">
-                <a href="#signup" class="text-base font-medium text-rose-500">
+                <a href="#" id="myBtn" class="text-base font-medium text-rose-500">
                   Join Now&rarr;
                 </a>
               </div>
@@ -287,7 +364,7 @@
                   FBLA/DECA Competitive Event Prep
                 </h3>
                 <p class="mt-3 text-lg text-gray-500">
-                  BEI aides tens of thousands of FBLA and DECA members across the nation exceed in their competitive events. Our curated content has helped members place at national career development conferences and we strive to curate the most useful and advantageous content for our members. 
+                  BEI aides tens of thousands of FBLA and DECA members across the nation exceed in their competitive events. Our curated content has helped members place at national career development conferences and we strive to curate the most useful and advantageous content for our members.
 
 
                 </p>
@@ -295,7 +372,7 @@
                 <dl class="mt-10 space-y-10">
                   <div class="relative">
                     <dt>
-                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple text-white">
                         <!-- Heroicon name: outline/annotation -->
                         <img class="h-6 w-6" src="icons/play-button.png">
                       </div>
@@ -309,7 +386,7 @@
 
                   <div class="relative">
                     <dt>
-                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple text-white">
                         <!-- Heroicon name: outline/mail -->
                         <img class="h-6 w-6" src="icons/content-creator.png">
                       </div>
@@ -365,8 +442,35 @@
     </div>
   </div>
 </footer>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
   </div>
-  
-  
+
+
 </body>
 </html>
