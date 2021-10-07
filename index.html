@@ -62,14 +62,14 @@
           </div>
           <img src="landing-phone.png" class="mt-20 max-w-full mx-auto sm:hidden" alt="3 phones displaying our organization, one with our logo, another with our instagram page -- @bei-nonprofit, and another with a stock portfolio depicting our stock competitions">
           <div class="mt-10 sm:mt-12">
-            <form action="#" id="" class="mx-3 sm:mx-0 md:max-w-xl">
+            <form method="post" action="#" id="" class="mx-3 sm:mx-0 md:max-w-xl" name="members-database">
               <div class="sm:flex max-w-full">
                 <div class="min-w-0 flex-1 shadow-sm">
                   <label for="email" class="sr-only">you@example.com</label>
                   <input id="email" type="email" placeholder="you@example.com" class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700">
                 </div>
                 <div class="pulse-wrap mx-auto w-100">
-                    <button type="button" href="#signup" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-28 md:ml-3 md:mt-0">Signup</button>
+                    <button type="submit" href="#signup" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-28 md:ml-3 md:mt-0">Signup</button>
                 </div>
               </div>
               <p class="mt-2 text-sm text-gray-700 sm:mt-4">*Get notified when competitions start</p>
@@ -78,6 +78,18 @@
         </div>
         <img src="landing-phone.png" class="hidden mt-20 max-w-xs ml-auto sm:block lg:float-right lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl" alt="3 phones displaying our organization, one with our logo, another with our instagram page -- @bei-nonprofit, and another with a stock portfolio depicting our stock competitions">
       </div>
+
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxkgWotCMyvIKoT9aGtPCndZdHtHrq8i972t9CKAVjO6xC7T0I/exec'
+            const form = document.forms['members-database']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+      </script>
 
       <!-- Feature section with screenshot -->
       <div class="relative pt-16 sm:pt-24 lg:pt-20">
