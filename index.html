@@ -6,7 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
+  <!--Charles Commit-->
+  <link rel="icon" href="bei-logo.png" sizes="any" type="image/png">
+  <meta property="og:image" content="images/hidden.jpg" />
+  <title>BEI - Business Education Initiative</title>
+  <meta name="description" content="The Business Education Initiative (BEI) is a 501(c)(3) nonprofit offering free business and finance competitions as well as Business CTSO Competitive Event Preparation.">
+
+  <style>
+  .bg-white {
+    background-color: #f6f5ff
+  }
+  .bg-purple {
+    background-color: #7C3AED
+  }
+  .text-purple {
+    color: #7C3AED
+  }
+  .sign-up-form {
+    margin-top: -60px
+  }
+  .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
 </head>
+<!--Define Modal-->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <iframe width="100%" height="300px" src="https://cdn.forms-content.sg-form.com/22b58870-2651-11ec-ba3a-aef2efb85ed7"></iframe>
+
+  </div>
+
+</div>
 <body class="bg-gradient-to-r from-purple-50 to-gray-50">   
   <nav class="px-3 container bg-opacity-0 mx-auto flex flex-col md:flex-row items-center justify-between py-4 sm:px-0" aria-label="Global">
     <div class="bg-opacity-0 w-full flex items-center">
@@ -26,29 +95,25 @@
         </div>
       </div>
       <div class="ml-auto hidden space-x-8 md:flex md:ml-10">
-        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-700 duration-200">CTSO Prep</a>
-
-        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-700 duration-200">Contact</a>
       </div>
     </div>
     <div class="hidden sticky top-0 md:flex md:items-center md:space-x-6">
       <div class="pulse-wrap mx-auto w-100"> 
-        <button type="button" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-32 md:ml-3 md:mt-0">Signup</button>
+        <button type="button" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-32 md:ml-3 md:mt-0">Donate</button>
       </div>
     </div>
     <div class=" mobile-menu hidden w-full flex flex-col">
-      <a href="#" class="divide-y divide-purple-500 pb-2 text-base font-medium text-gray-500 hover:text-gray-700 duration-200">CTSO Prep</a>
-
-      <a href="#" class="pt-2 text-base font-medium text-gray-500 hover:text-gray-700 duration-200">Contact</a>
 
     </div>
     <script>
+      /*
       const btn = document.querySelector(".mobile-menu-button");
       const menu = document.querySelector(".mobile-menu");
 
       btn.addEventListener("click", () => {
         menu.classList.toggle("hidden");
       });
+      */
     </script>
   </nav>
     
@@ -57,23 +122,25 @@
       <div class="flex flex-col sm:flex-row">
         <div class="flex flex-col">
           <div id="signup" class="px-3 pt-20 text-center sm:max-w-xl sm:px-0 sm:text-left lg:max-w-2xl">
+            <a href="#" class="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+              <span class="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-purple rounded-full">Donate</span>
+              <span class="ml-4 text-sm">Help us reach every student!</span>
+              <!-- Heroicon name: solid/chevron-right -->
+              <svg class="ml-2 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+              </svg>
+            </a>
             <h1 class="font-bold text-4xl sm:text-5xl lg:text-7xl"><span class="text-purple-700">Free</span> Business <span class="text-purple-700">Competitions</span> With Big <span class="text-purple-700">Cash Prizes</span></h1>
-            <h4 class="font-bold mt-3 text-lg md:text-xl lg:text-">+Business CTSO Competitive Event Preparation (FBLA & DECA)</h4>
+            <p class="mt-3 text-base text-gray-900 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+              The Business Education Initiative (BEI) is a 501(c)(3) nonprofit offering free-to-join business competitions and business CTSO competitive event preparation.
+            </p>
           </div>
           <img src="landing-phone.png" class="mt-20 max-w-full mx-auto sm:hidden" alt="3 phones displaying our organization, one with our logo, another with our instagram page -- @bei-nonprofit, and another with a stock portfolio depicting our stock competitions">
           <div class="mt-10 sm:mt-12">
-            <form method="post" action="#" id="" class="mx-3 sm:mx-0 md:max-w-xl" name="members-database">
-              <div class="sm:flex max-w-full">
-                <div class="min-w-0 flex-1 shadow-sm">
-                  <label for="email" class="sr-only">you@example.com</label>
-                  <input id="email" type="email" placeholder="you@example.com" class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700">
-                </div>
-                <div class="pulse-wrap mx-auto w-100">
-                    <button type="submit" href="#signup" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-28 md:ml-3 md:mt-0">Signup</button>
-                </div>
-              </div>
-              <p class="mt-2 text-sm text-gray-700 sm:mt-4">*Get notified when competitions start</p>
-            </form>
+            <div class="pulse-wrap mx-auto w-100">
+              <button id="myBtn" href="#" class="btn btn-primary-important glow-on-hover block w-full mx-auto mt-3 rounded-md light-shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-300 focus:ring-offset-purple-700 md:w-28 md:ml-0 md:mt-0">Signup</button>
+            </div>
+            <p class="mt-2 text-sm text-gray-700 sm:mt-4">*Get notified when our $10,000+ (in prizes) trading simulation begins!</p> 
           </div>
         </div>
         <img src="landing-phone.png" class="hidden mt-20 max-w-xs ml-auto sm:block lg:float-right lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl" alt="3 phones displaying our organization, one with our logo, another with our instagram page -- @bei-nonprofit, and another with a stock portfolio depicting our stock competitions">
@@ -177,7 +244,7 @@
                 </div>
               </dl>
               <div class="mt-10">
-                <a href="#signup" class="text-base font-medium text-rose-500">
+                <a href="#myBtn" class="text-base font-medium text-rose-500">
                   Join Now&rarr;
                 </a>
               </div>
@@ -377,6 +444,34 @@
     </div>
   </div>
 </footer>
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+    console.log("hi");
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
   </div>
   
   
