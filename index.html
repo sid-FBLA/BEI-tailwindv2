@@ -8,6 +8,8 @@
   <link href="styles.css" rel="stylesheet">
   <!--Charles Commit-->
   <link rel="icon" href="bei-logo.png" sizes="any" type="image/png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
   <meta property="og:image" content="images/hidden.jpg" />
   <title>BEI - Business Education Initiative</title>
   <meta name="description" content="The Business Education Initiative (BEI) is a 501(c)(3) nonprofit offering free business and finance competitions as well as Business CTSO Competitive Event Preparation.">
@@ -76,7 +78,70 @@
   </div>
 
 </div>
-<body class="px-8 bg-gradient-to-r from-purple-50 to-gray-50">   
+<body class="px-8 bg-gradient-to-r from-purple-50 to-gray-50 overflow-x-hidden">
+  <!--Current Event Modal-->
+  <div id="eventModal" class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!--
+      Background overlay, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+    <!-- This element is to trick the browser into centering the modal contents. -->
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+    <!--
+      Modal panel, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        To: "opacity-100 translate-y-0 sm:scale-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100 translate-y-0 sm:scale-100"
+        To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    -->
+    <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+      <div>
+        <div class="mx-auto flex items-center justify-center w-15 h-16">
+          <!-- Heroicon name: outline/check -->
+          <img class="w-max" src="img/M&T.png" alt="M&T Bank Logo">
+          <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <div class="mt-3 text-center sm:mt-5">
+          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+            Stock Writing Competition 
+          </h3>
+          <div class="mt-2">
+            <p class="text-sm text-gray-500">
+              We have launched a stock writing competition in partnership with M&T Bank. <br>
+              Top 3 submissions will receive a national award verified by M&T Bank. 
+              Submission Deadline: December 7th, 2021
+
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple-600 text-base font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:col-start-2 sm:text-sm">
+          Learn More
+        </button>
+        <button id="closeEventModal" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:mt-0 sm:col-start-1 sm:text-sm">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>   
+  <!--Navbar-->
   <nav class="container bg-opacity-0 mx-auto flex flex-col md:flex-row items-center justify-between py-4 sm:px-0" aria-label="Global">
     <div class="bg-opacity-0 w-full flex items-center">
       <div class="flex items-center w-full md:w-auto">
@@ -149,7 +214,7 @@
       <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxkgWotCMyvIKoT9aGtPCndZdHtHrq8i972t9CKAVjO6xC7T0I/exec'
             const form = document.forms['members-database']
-          
+
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
@@ -157,6 +222,180 @@
                 .catch(error => console.error('Error!', error.message))
             })
       </script>
+
+      <!--Current Event Info-->
+      <div id="currentEvent" class="relative pt-16 sm:pt-24 lg:pt-20">
+        <div class="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
+          <div>
+            <h2 class="text-base font-semibold tracking-wider text-purple-700 uppercase">Current Event</h2>
+            <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+              Stock Writing Competition <br> BEI X M&T Bank
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:flex">
+        <nav class="lg:flex-1 mt-20" aria-label="Progress">
+          <ol role="list" class="overflow-hidden">
+            <li class="relative pb-10">
+              <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-purple-600" aria-hidden="true"></div>
+              <!-- Complete Step -->
+              <a href="#" class="relative flex items-start group">
+                <span class="h-9 flex items-center">
+                  <span class="relative z-10 w-8 h-8 flex items-center justify-center bg-purple-600 rounded-full group-hover:bg-purple-800">
+                    <!-- Heroicon name: solid/check -->
+                    <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                </span>
+                <span class="ml-4 min-w-0 flex flex-col">
+                  <span class="text-xs font-semibold tracking-wide uppercase">Sign Up 🤗</span>
+                  <span class="text-sm text-gray-500">Receive notifications from BEI regarding stock write and all upcoming opportunities!</span>
+                </span>
+              </a>
+            </li>
+        
+            <li class="relative pb-10">
+              <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-gray-300" aria-hidden="true"></div>
+              <!-- Current Step -->
+              <a href="#" class="relative flex items-start group" aria-current="step">
+                <span class="h-9 flex items-center" aria-hidden="true">
+                  <span class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-purple-600 rounded-full">
+                    <span class="h-2.5 w-2.5 bg-purple-600 rounded-full"></span>
+                  </span>
+                </span>
+                <span class="ml-4 min-w-0 flex flex-col">
+                  <span class="text-xs font-semibold tracking-wide uppercase">Read Prompts 👀</span>
+                  <span class="text-sm text-gray-500">Pick what you want to write about -- and write it!</span>
+                </span>
+              </a>
+            </li>
+        
+            <li class="relative pb-10">
+              <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-gray-300" aria-hidden="true"></div>
+              <!-- Upcoming Step -->
+              <a href="#" class="relative flex items-start group">
+                <span class="h-9 flex items-center" aria-hidden="true">
+                  <span class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400">
+                    <span class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300"></span>
+                  </span>
+                </span>
+                <span class="ml-4 min-w-0 flex flex-col">
+                  <span class="text-xs font-semibold tracking-wide uppercase">Download as a PDF 📄</span>
+                  <span class="text-sm text-gray-500">Download your piece as a PDF</span>
+                </span>
+              </a>
+            </li>
+        
+            <li class="relative pb-10">
+              <div class="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-gray-300" aria-hidden="true"></div>
+              <!-- Upcoming Step -->
+              <a href="mailto:submissions@bei-us.org subject=Stock Write Submission" target="_blank" class="relative flex items-start group">
+                <span class="h-9 flex items-center" aria-hidden="true">
+                  <span class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400">
+                    <span class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300"></span>
+                  </span>
+                </span>
+                <span class="ml-4 min-w-0 flex flex-col" href="mailto:submissions@bei-us.org subject=Stock Write Submission" target="_blank"">
+                  <span class="text-xs font-semibold tracking-wide uppercase">Submit 📥</span>
+                  <span class="text-sm text-gray-500">Send an email to <span class="text-sm text-purple-500 hover:text-purple-700 duration-200">submissions@bei-us.org</span> 
+                    with your written piece attached as a pdf</span>
+                </span>
+              </a>
+            </li>
+        
+            <li class="relative">
+              <!-- Upcoming Step -->
+              <a href="#" class="relative flex items-start group">
+                <span class="h-9 flex items-center" aria-hidden="true">
+                  <span class="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400">
+                    <span class="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300"></span>
+                  </span>
+                </span>
+                <span class="ml-4 min-w-0 flex flex-col">
+                  <span class="text-xs font-semibold tracking-wide uppercase">Wait 🤞</span>
+                  <span class="text-sm text-gray-500">Officials at M&T Bank will read your paper and decide winners 1-2 weeks after December 17th 
+                    <br>we will announce the winners via email and present their national award</span>
+                </span>
+              </a>
+            </li>
+          </ol>
+          <div class="mt-20"></div>
+          <p class="ml-2 text-small text-gray-500">In Partnership With</p>
+          <img class="mt-5 w-max" src="img/M&T.png" alt="M&T Bank Logo, this competition is in partnership with M&T Bank">         
+        </nav>
+
+        <!--Prompts-->
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div class="mt-20 lg:flex-1 px-4 sm:px-6 lg:py-16 lg:mt-0 lg:px-8">
+          <h2 class="text-3xl font-extrabold text-gray-900">
+            Prompts
+          </h2>
+          <p class="text-small text-gray-500 mt-3">
+            Prompts will be added throughout the course of the competition; all prompts will fall under the broad topic of the stock market,
+            the purpose of these prompts are to get you thinking, not cage you in a specific direction. 
+          </p>
+          <div class="max-w-7xl mx-auto divide-y divide-gray-200">
+            <div class="mt-8">
+              <dl class="divide-y divide-gray-200">
+                <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                  <dt class="text-base font-medium text-gray-900 md:col-span-5">
+                    Prompt 1
+                  </dt>
+                  <dd class="mt-2 md:mt-0 md:col-span-7">
+                    <p class="text-base text-gray-500">
+                      To what extent has the Gamestop incident with Robinhood affected young people's view and behavior surrounding investing in the stock market?
+                    </p>
+                  </dd>
+                </div>
+
+                <dl class="divide-y divide-gray-200">
+                  <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                    <dt class="text-base font-medium text-gray-900 md:col-span-5">
+                      Prompt 2
+                    </dt>
+                    <dd class="mt-2 md:mt-0 md:col-span-7">
+                      <p class="text-base text-gray-500">
+                        Analyze the effect of data science technologies on stock-trading strategies
+                      </p>
+                    </dd>
+                  </div>
+
+                  <dl class="divide-y divide-gray-200">
+                    <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                      <dt class="text-base font-medium text-gray-900 md:col-span-5">
+                        Prompt 3
+                      </dt>
+                      <dd class="mt-2 md:mt-0 md:col-span-7">
+                        <p class="text-base text-gray-500">
+                          Should stock-trading be taught in high-school schools, why or why not?
+                        </p>
+                      </dd>
+                    </div>
+
+                    <dl class="divide-y divide-gray-200">
+                      <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                        <dt class="text-base font-medium text-gray-900 md:col-span-5">
+                          Broad Prompt
+                        </dt>
+                        <dd class="mt-2 md:mt-0 md:col-span-7">
+                          <p class="text-base text-gray-500">
+                            The theme for this year's competition is the stock market, write about anything related to the stock market that interests you
+                          </p>
+                        </dd>
+                      </div>
+
+                <!-- More questions... -->
+              </dl>
+            </div>
+          </div>
+          <p class="text-base font-medium text-gray-900 md:col-span-5">
+            Word Limit: 600 Words
+          </p>
+        </div>
+      </div>
 
       <!-- Feature section with screenshot -->
       <div class="relative pt-16 sm:pt-24 lg:pt-20">
@@ -287,7 +526,7 @@
               <dl class="mt-10 space-y-10">
                 <div class="relative">
                   <dt>
-                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
                       <!-- Heroicon name: outline/globe-alt -->
                       <img class="h-6 w-6" src="icons/dollar-symbol.png">
                     </div>
@@ -305,7 +544,7 @@
 
                 <div class="relative">
                   <dt>
-                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
                       <!-- Heroicon name: outline/scale -->
                       <img class="h-6 w-6" src="icons/customer.png">
                     </div>
@@ -319,7 +558,7 @@
 
                 <div class="relative">
                   <dt>
-                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
                       <!-- Heroicon name: outline/lightning-bolt -->
                       <img class="h-6 w-6" src="icons/startup.png">
                     </div>
@@ -374,7 +613,7 @@
                 <dl class="mt-10 space-y-10">
                   <div class="relative">
                     <dt>
-                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
                         <!-- Heroicon name: outline/annotation -->
                         <img class="h-6 w-6" src="icons/play-button.png">
                       </div>
@@ -388,7 +627,7 @@
 
                   <div class="relative">
                     <dt>
-                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
                         <!-- Heroicon name: outline/mail -->
                         <img class="h-6 w-6" src="icons/content-creator.png">
                       </div>
@@ -447,9 +686,12 @@
 <script>
   // Get the modal
   var modal = document.getElementById("myModal");
+  var eventModal = document.getElementById("eventModal")
+  console.log(eventModal);
   
   // Get the button that opens the modal
   var btn = document.getElementById("myBtn");
+  var closeEventModal = document.getElementById("closeEventModal");
   
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
@@ -471,6 +713,12 @@
       modal.style.display = "none";
     }
   }
+
+  //Closing Event Modal
+  closeEventModal.onclick = function() {
+    eventModal.style.display = "none";
+  }
+
   </script>
   </div>
   
